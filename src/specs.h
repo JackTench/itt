@@ -2,6 +2,7 @@
 #define SPECS_H
 
 void getOS();
+void getCPU();
 void getSpecs();
 
 #endif
