@@ -13,7 +13,9 @@ string generateServicePassword(int length)
     string password;
     password.reserve(length);
 
-    srand(static_cast<unsigned int>(time(nullptr)));
+    static int counter = 0;
+    srand(static_cast<unsigned int>(time(nullptr)) + counter);
+    counter++;
 
     for (int i = 0; i < length; ++i) {
         int index = rand() % (sizeof(charset) - 1);
