@@ -24,6 +24,12 @@ int main(int argc, char* argv[])
                 cout << backPw << endl;
             }
         }
+        if (strcmp(argv[2], "human") == 0) {
+            for (int i = 0; i < 10; ++i) {
+                string backPw = generateHumanPassword();
+                cout << backPw << endl;
+            }
+        }
     }
 
     return 1;

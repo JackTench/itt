@@ -23,3 +23,8 @@ string generateServicePassword(int length)
 
     return password;
 }
+
+string generateHumanPassword()
+{
+    return "HelloWorld";
+}
