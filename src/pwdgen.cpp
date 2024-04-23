@@ -3,6 +3,7 @@
 #include <ctime>
 
 #include "pwdgen.h"
+#include "dictionary.h"
 
 using namespace std;
 
@@ -26,5 +27,15 @@ string generateServicePassword(int length)
 
 string generateHumanPassword()
 {
-    return "HelloWorld";
+    static int counter = 0;
+    srand(static_cast<unsigned int>(time(nullptr)) + counter);
+    counter++;
+
+    int index1 = rand() % Dictionary::dictionary.size();
+    int index2 = rand() % Dictionary::dictionary.size();
+
+    string word1 = Dictionary::dictionary[index1];
+    string word2 = Dictionary::dictionary[index2];
+
+    return word1 + word2;
 }
