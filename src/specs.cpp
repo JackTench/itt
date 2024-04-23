@@ -77,7 +77,26 @@ void getRAM()
     uint64_t totalRAM = memoryStatus.ullTotalPhys;
     cout << "RAM: " << to_string(totalRAM / (1024 * 1024)) << " MB" << endl;
 #elif __unix__
-    cout << "RAM: Not yet implemented." << endl;
+    ifstream meminfo("/proc/meminfo");
+    string line;
+    string ramAmount;
+
+    while (getline(meminfo, line)) {
+        if (line.substr(0, 8) == "MemTotal") {
+            istringstream iss(line);
+            string token;
+            iss >> token;
+            int amount;
+            if (iss >> amount) {
+                ramAmount = to_string(amount / 1024) + " MB";
+                break;
+            }
+        }
+    }
+
+    meminfo.close();
+
+    cout << "RAM: " << ramAmount << endl;
 #else
     cout << "RAM: Not yet implemented." << endl;
 #endif
