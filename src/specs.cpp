@@ -29,7 +29,20 @@ void getOS()
 void getCPU()
 {
 #ifdef _WIN32
-    cout << "Not yet implemented." << endl;
+    HKEY hKey;
+    DWORD dwType = REG_SZ;
+    char szBuffer[256];
+    DWORD dwBufferSize = sizeof(szBuffer);
+    string cpuModel;
+
+    if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0", 0, KEY_READ, &hKey) == ERROR_SUCCESS) {
+        if (RegQueryValueEx(hKey, "ProcessorNameString", NULL, &dwType, (LPBYTE)szBuffer, &dwBufferSize) == ERROR_SUCCESS) {
+            cpuModel = szBuffer;
+        }
+        RegCloseKey(hKey);
+    }
+
+    cout << "CPU: " << cpuModel << endl;
 #elif __unix__
     ifstream cpuinfo("/proc/cpuinfo");
     string line;
