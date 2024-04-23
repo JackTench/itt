@@ -49,7 +49,7 @@ void getCPU()
     
     cout << "CPU: " << cpuModel << endl;
 #else
-    cout << "Not yet implemented." << endl;
+    cout << "CPU: Not yet implemented." << endl;
 #endif
 }
 
