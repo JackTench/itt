@@ -16,5 +16,5 @@ cpp_header_content += ",\n".join(['        "' + word + '"' for word in words])
 cpp_header_content += "\n    };\n}\n\n#endif\n"
 
 # Write.
-with open("dictionary.h", "w") as file:
+with open("../src/dictionary.h", "w") as file:
     file.write(cpp_header_content)
