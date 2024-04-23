@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "pwdgen.h"
+#include "cat.h"
 
 using namespace std;
 
@@ -12,6 +13,17 @@ int main(int argc, char* argv[])
     if (argc == 1) {
         cerr << "Error: No arguments passed to itt.\n";
         return 1;
+    }
+
+    // Easter egg.
+    if (strcmp(argv[1], "cat") == 0) {
+        if (argc == 2) {
+            printCat();
+        } else {
+            if (strcmp(argv[2], "big") == 0) {
+                printLargeCat();
+            }
+        }
     }
 
     // Password generation module.
