@@ -15,20 +15,18 @@ int main(int argc, char* argv[])
     }
 
     // Password generation module.
-    if (strcmp(argv[1], "pwd") == 0) {
-        // Service passwords.
-        if (strcmp(argv[2], "service") == 0) {
-            // TODO: Change this from test code to user input. This is only temporary.
-            for (int i = 0; i < 10; ++i) {
-                string backPw = generateServicePassword(24);
-                cout << backPw << endl;
-            }
+    // TODO: Make this more readable.
+    if (strcmp(argv[1], "pwd") == 0 && strcmp(argv[2], "service") == 0) {
+        int count = (argc == 4) ? atoi(argv[3]) : 1;
+        for (int i = 0; i < count; ++i) {
+            string backPw = generateServicePassword(24);
+            cout << backPw << endl;
         }
-        if (strcmp(argv[2], "human") == 0) {
-            for (int i = 0; i < 10; ++i) {
-                string backPw = generateHumanPassword();
-                cout << backPw << endl;
-            }
+    } else if (strcmp(argv[1], "pwd") == 0 && strcmp(argv[2], "human") == 0) {
+        int count = (argc == 4) ? atoi(argv[3]) : 1;
+        for (int i = 0; i < count; ++i) {
+            string backPw = generateHumanPassword();
+            cout << backPw << endl;
         }
     }
 
