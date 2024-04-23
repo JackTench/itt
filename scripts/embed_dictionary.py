@@ -9,7 +9,7 @@ words = response.text.splitlines()
 
 # Create C++ header file.
 cpp_header_content = "#ifndef DICTIONARY_H\n#define DICTIONARY_H\n\n"
-cpp_header_content += '#include <vector>\n#include<string>\n\n'
+cpp_header_content += '#include <vector>\n#include <string>\n\n'
 cpp_header_content += "namespace Dictionary {\n"
 cpp_header_content += "    const std::vector<std::string> dictionary = {\n"
 cpp_header_content += ",\n".join(['        "' + word + '"' for word in words])
