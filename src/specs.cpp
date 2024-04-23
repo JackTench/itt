@@ -87,4 +87,5 @@ void getSpecs()
 {
     getOS();
     getCPU();
+    getRAM();
 }
