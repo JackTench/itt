@@ -22,7 +22,7 @@ void getOS()
     uname(&unameData);
     cout << "Operating System: " <<unameData.sysname << " " << unameData.release << endl;
 #else
-    cout << "Operating System Unknown" << endl;
+    cout << "Operating System: Unknown" << endl;
 #endif
 }
 
