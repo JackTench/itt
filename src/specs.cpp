@@ -75,7 +75,7 @@ void getRAM()
     memoryStatus.dwLength = sizeof(memoryStatus);
     GlobalMemoryStatusEx(&memoryStatus);
     uint64_t totalRAM = memoryStatus.ullTotalPhys;
-    cout << "RAM: " << toString(totalRAM / (1024 * 1024)) << " MB" << endl;
+    cout << "RAM: " << to_string(totalRAM / (1024 * 1024)) << " MB" << endl;
 #elif __unix__
     cout << "RAM: Not yet implemented." << endl;
 #else
