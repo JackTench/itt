@@ -45,7 +45,17 @@ int main(int argc, char* argv[])
 
     // Specs module.
     if (strcmp(argv[1], "specs") == 0) {
-        getSpecs();
+        if (argc == 3) {
+            if (strcmp(argv[2], "os") == 0) {
+                getOS();
+            } else if (strcmp(argv[2], "cpu") == 0) {
+                getCPU();
+            } else if (strcmp(argv[2], "ram") == 0) {
+                getRAM();
+            }
+        } else {
+            getSpecs();
+        }
     }
 
     return 1;
