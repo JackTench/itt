@@ -3,6 +3,7 @@
 
 #include "pwdgen.h"
 #include "cat.h"
+#include "specs.h"
 
 using namespace std;
 
@@ -39,6 +40,21 @@ int main(int argc, char* argv[])
         for (int i = 0; i < count; ++i) {
             string backPw = generateHumanPassword();
             cout << backPw << endl;
+        }
+    }
+
+    // Specs module.
+    if (strcmp(argv[1], "specs") == 0) {
+        if (argc == 3) {
+            if (strcmp(argv[2], "os") == 0) {
+                getOS();
+            } else if (strcmp(argv[2], "cpu") == 0) {
+                getCPU();
+            } else if (strcmp(argv[2], "ram") == 0) {
+                getRAM();
+            }
+        } else {
+            getSpecs();
         }
     }
 

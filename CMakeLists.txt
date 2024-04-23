@@ -22,6 +22,7 @@ add_executable(itt
     src/main.cpp
     src/pwdgen.cpp
     src/cat.c
+    src/specs.cpp
 )
 
 set_target_properties(itt PROPERTIES
