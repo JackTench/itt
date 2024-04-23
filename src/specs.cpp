@@ -3,9 +3,11 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include <cstdint>
 #elif __unix__
 #include <sys/utsname.h>
 #include <fstream>
+#include <sstream>
 #endif
 
 using namespace std;
@@ -63,6 +65,21 @@ void getCPU()
     cout << "CPU: " << cpuModel << endl;
 #else
     cout << "CPU: Not yet implemented." << endl;
+#endif
+}
+
+void getRAM()
+{
+#ifdef _WIN32
+    MEMORYSTATUSEX memoryStatus;
+    memoryStatus.dwLength = sizeof(memoryStatus);
+    GlobalMemoryStatusEx(&memoryStatus);
+    uint64_t totalRAM = memoryStatus.ullTotalPhys;
+    cout << "RAM: " << toString(totalRAM / (1024 * 1024)) << " MB" << endl;
+#elif __unix__
+    cout << "RAM: Not yet implemented." << endl;
+#else
+    cout << "RAM: Not yet implemented." << endl;
 #endif
 }
 

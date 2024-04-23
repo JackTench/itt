@@ -3,6 +3,7 @@
 
 void getOS();
 void getCPU();
+void getRAM();
 void getSpecs();
 
 #endif
